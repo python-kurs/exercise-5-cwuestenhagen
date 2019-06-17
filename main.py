@@ -46,6 +46,10 @@ else:
     print("The anomaly of Marburg is lower than the one for Europe.")
         
 
-
 # 5. Write the monthly anomalies from task 3 to a netcdf file with name "europe_anom_2018.nc" to the solution directory.
 #    Write the monthly anomalies for Marburg to a csv file with name "marburg_anom_2018.csv" to the solution directory. [2P]
+
+anom_2018.to_netcdf(output_dir / "europe_anom_2018.nc")
+anom_2018_monthly_MR = anom_2018.sel(latitude= 50.81, longitude=8.77, method="nearest").to_dataframe()
+anom_2018_monthly_MR.to_csv(output_dir / "marburg_anom_2018.csv")
+
